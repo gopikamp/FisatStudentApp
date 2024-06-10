@@ -6,7 +6,7 @@ const ViewAll = () => {
     const [data, changeData] = useState([])
     const fetchData = () => {
         console.log("hello")
-        axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+        axios.get("https://courseapplogix.onrender.com/getdata").then(
             (Response) => {
                 console.log(Response.data)
                 changeData(Response.data)
@@ -47,7 +47,7 @@ const ViewAll = () => {
                                                     <th>{value.firstname}</th>
                                                     <th>{value.lastname}</th>
                                                     <th>{value.college}</th>
-                                                    <th>{value.dof}</th>
+                                                    <th>{value.do}</th>
                                                     <th>{value.course}</th>
                                                     <th>{value.mobile}</th>
                                                     <th>{value.email}</th>

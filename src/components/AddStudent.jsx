@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from './NavBar'
+import axios from 'axios'
 
 const AddStudent = () => {
     const [data, setDate] = useState(
@@ -19,6 +20,17 @@ const AddStudent = () => {
     }
     const readValue = () => {
         console.log(data)
+        axios.post("https://courseapplogix.onrender.com/addstudents", data).then(
+            (Response) => {
+                console.log(Response.data)
+                if (Response.data.status = "success") {
+                    alert("successfully added")
+                } else {
+                    alert("Error")
+
+                }
+            }
+        ).catch()
     }
     return (
         <div>
@@ -60,7 +72,7 @@ const AddStudent = () => {
                                 <textarea id="" className='form-control' name="address" value={data.address} onChange={inputHandler} ></textarea>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <button className="btn btn-primary" onClick={readValue}>Submitn</button>
+                                <button className="btn btn-primary" onClick={readValue}>Submit</button>
                             </div>
                         </div>
                     </div>
